@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top">Student Portal</div>
+
+<main class="wrap narrow" id="regView">
+  <form class="panel" id="regForm" novalidate>
+    <h2>New student</h2>
+    <div class="g2">
+      <div class="field"><label for="fullName">Full name</label><input type="text" id="fullName" placeholder="Aarav Sharma"><small class="error"></small></div>
+      <div class="field"><label for="enrollment">Enrollment no.</label><input type="text" id="enrollment" placeholder="MCA2026001"><small class="error"></small></div>
+      <div class="field"><label for="email">Email</label><input type="email" id="email" placeholder="you@example.com"><small class="error"></small></div>
+      <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" maxlength="10" inputmode="numeric" placeholder="10 digits"><small class="error"></small></div>
+      <div class="field">
+        <label for="course">Course</label>
+        <select id="course"><option value="">Choose</option><option>MCA</option><option>MBA</option><option>BCA</option><option>B.Sc. IT</option></select>
+        <small class="error"></small>
+      </div>
+      <div class="field">
+        <label for="semester">Semester</label>
+        <select id="semester"><option value="">Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+        <small class="error"></small>
+      </div>
+    </div>
+    <p class="done" id="done" hidden aria-live="polite"></p>
+    <div class="actions">
+      <button type="submit" class="primary">Register student</button>
+      <button type="button" class="ghost" id="clear">Clear</button>
+    </div>
+  </form>
+
+</main>
+
+<main class="wrap" id="resView" hidden>
+  <div class="stats">
+    <div class="stat"><b id="sCount">0</b><span>Results</span></div>
+    <div class="stat"><b id="sPass">0%</b><span>Pass rate</span></div>
+    <div class="stat"><b id="sAvg">0%</b><span>Average</span></div>
+  </div>
+
+  <form class="panel" id="resForm" novalidate>
+    <h2>Add marks</h2>
+    <div class="g2" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="field"><label for="rEn">Enrollment no.</label><input type="text" id="rEn" list="enList" autocomplete="off" placeholder="MCA2026001"><datalist id="enList"></datalist><small class="error"></small></div>
+      <div class="field"><label for="rName">Student name</label><input type="text" id="rName" placeholder="Aarav Sharma"><small class="error"></small></div>
+      <div class="field"><label for="rExam">Exam</label><select id="rExam"><option>Unit Test 1</option><option>Unit Test 2</option><option>Semester Exam</option><option>Practical</option></select></div>
+    </div>
+    <div class="marks" id="marksBox"></div>
+    <div class="actions">
+      <button type="submit" class="primary" id="rSave">Save result</button>
+      <button type="reset" class="ghost">Clear</button>
+    </div>
+  </form>
+
+  <div class="tools">
+    <div class="flt" id="flt"><button type="button" class="on" data-f="all">All</button><button type="button" data-f="pass">Pass</button><button type="button" data-f="fail">Fail</button></div>
+    <div class="field"><input type="text" id="rSearch" placeholder="Search by name or enrollment no."></div>
+  </div>
+  <div class="grid" id="rGrid"></div>
+</main>
+
+<nav class="dock">
+  <button type="button" class="tab active" id="tabReg">Register</button>
+  <button type="button" class="tab" id="tabRes">Results</button>
+</nav>
+
+<script src="script.js" defer></script>
+</body>
+</html>
